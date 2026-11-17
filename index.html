@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f7f4" />
+    <meta name="description" content="頁外 Pageverse，為你生成下一個想讀的故事。探索、創作、收藏，讓小說閱讀回到你的節奏。" />
+    <title>頁外 Pageverse — 故事，從你開始</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700;800&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="主要導覽">
+        <a class="brand" href="#top" aria-label="頁外 Pageverse 首頁">
+          <span class="brand-mark"><i></i><i></i><i></i><i></i></span>
+          <span class="brand-copy"><strong>頁外</strong><small>PAGEVERSE</small></span>
+        </a>
+        <div class="side-label">閱讀空間</div>
+        <nav class="side-nav">
+          <a class="nav-link active" href="#discover" data-nav="discover" title="發現故事"><span class="nav-icon">⌂</span>發現故事</a>
+          <a class="nav-link" href="#studio" data-nav="studio" title="創作工坊"><span class="nav-icon">✳</span>創作工坊<span class="nav-new">NEW</span></a>
+          <button class="nav-link" type="button" data-action="library" title="我的收藏"><span class="nav-icon">▤</span>我的收藏<span class="nav-count" id="library-count">0</span></button>
+        </nav>
+        <div class="side-divider"></div>
+        <div class="side-label">熱門題材</div>
+        <nav class="topic-nav" aria-label="小說題材">
+          <button class="topic-link" data-genre="都市奇幻"><span class="topic-dot dot-lilac"></span>都市奇幻</button>
+          <button class="topic-link" data-genre="戀愛日常"><span class="topic-dot dot-coral"></span>戀愛日常</button>
+          <button class="topic-link" data-genre="懸疑推理"><span class="topic-dot dot-blue"></span>懸疑推理</button>
+          <button class="topic-link" data-genre="科幻未來"><span class="topic-dot dot-green"></span>科幻未來</button>
+          <button class="topic-link" data-genre="療癒奇想"><span class="topic-dot dot-yellow"></span>療癒奇想</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="mini-note"><span class="note-spark">✳</span><p>故事沒有標準答案，<br />只有下一頁的可能。</p></div>
+          <button class="profile-trigger" id="profile-trigger" type="button" data-action="auth">
+            <span class="avatar" id="profile-avatar">頁</span><span class="profile-copy"><strong id="profile-name">訪客讀者</strong><small id="profile-label">登入以同步收藏</small></span><span class="profile-arrow">↗</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content" id="top">
+        <header class="topbar">
+          <button class="mobile-brand" aria-label="頁外 Pageverse"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><strong>頁外</strong></button>
+          <div class="breadcrumb"><span>閱讀空間</span><b>/</b><strong id="breadcrumb-current">發現故事</strong></div>
+          <div class="top-actions"><span class="live-pill"><i></i>靈感持續更新</span><button class="top-avatar" type="button" data-action="auth" aria-label="會員登入">頁</button></div>
+        </header>
+
+        <div class="page-wrap" id="discover">
+          <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-grid"></div><div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div><div class="hero-glow"></div>
+            <div class="hero-copy">
+              <div class="eyebrow"><span class="eyebrow-star">✳</span> YOUR STORY, YOUR RULES <span class="eyebrow-line"></span></div>
+              <h1 id="hero-title">故事不必照著<br /><em>世界的規則寫。</em></h1>
+              <p>選一個念頭，讓下一本想讀的小說，從你開始。</p>
+            </div>
+            <div class="generator-card" id="studio">
+              <div class="generator-top"><div><span class="generator-kicker">STORY GENERATOR</span><h2>今天想走進什麼故事？</h2></div><span class="generator-spark">✳</span></div>
+              <div class="generator-controls">
+                <label class="select-wrap"><span>題材</span><select id="genre-select"><option>都市奇幻</option><option>戀愛日常</option><option>懸疑推理</option><option>科幻未來</option><option>療癒奇想</option><option>古風冒險</option><option>校園青春</option></select><b>⌄</b></label>
+                <label class="select-wrap mood-select"><span>氛圍</span><select id="mood-select"><option>微甜心動</option><option>燒腦反轉</option><option>溫柔療癒</option><option>熱血冒險</option><option>暗黑迷離</option><option>輕鬆搞笑</option></select><b>⌄</b></label>
+                <label class="idea-wrap"><span class="idea-icon">✦</span><input id="idea-input" maxlength="52" placeholder="加上一個靈感，讓故事更像你…" /></label>
+                <button class="generate-button" id="generate-button" type="button"><span>生成故事</span><span class="button-spark">✳</span></button>
+              </div>
+              <div class="generator-foot"><span><i class="tiny-check">✓</i> 每次生成都有不同可能</span><span>不確定？試試 <button class="prompt-chip" data-prompt="一封寄給十年後自己的信">「寄給十年後的信」</button></span></div>
+            </div>
+            <div class="hero-side-note"><span>01 — 你的靈感</span><i></i><span>02 — 無限展開</span></div>
+          </section>
+
+          <section class="trend-row" aria-label="熱門閱讀靈感"><div class="trend-title"><span class="trend-icon">↗</span><span>近期熱門靈感</span></div><div class="trend-list" id="trend-list"></div><span class="trend-period">題材持續變化</span></section>
+
+          <section class="section-block" id="recommendations">
+            <div class="section-heading"><div><div class="section-overline">A LITTLE INSPIRATION</div><h2>此刻，值得打開的故事<span class="heading-dot">.</span></h2><p class="section-subtitle" id="feed-subtitle">為你挑選的靈感，下一本也許就是你的本命。</p></div><div class="section-actions"><button class="filter-button" id="filter-button" type="button"><span>☷</span> 篩選<span class="filter-count" id="filter-count"></span></button><button class="refresh-button" id="refresh-button" type="button"><span>⟳</span><b class="refresh-label">換一批</b></button></div></div>
+            <div class="filter-panel" id="filter-panel" hidden><span>挑選你的題材</span><div class="filter-options" id="filter-options"></div><button class="clear-filter" id="clear-filter" type="button">清除篩選</button></div>
+            <div class="novel-grid" id="novel-grid"></div>
+            <div class="feed-footer"><span class="feed-dot"></span><span>每一次刷新，都有新的故事正在發生</span><button id="more-button" type="button">再看一些 <b>↓</b></button></div>
+          </section>
+
+          <footer class="site-footer"><a class="footer-brand" href="#top">頁外 <span>PAGEVERSE</span></a><span>讓想像自由發生。© 2026 PAGEVERSE</span><div><a href="#studio">創作工坊</a><a href="#top" data-action="auth">會員登入</a></div></footer>
+        </div>
+      </main>
+    </div>
+
+    <nav class="mobile-nav" aria-label="手機導覽"><a href="#discover" class="mobile-nav-item active" data-nav="discover"><span>⌂</span>發現</a><a href="#studio" class="mobile-nav-item" data-nav="studio"><span>✳</span>創作</a><button class="mobile-nav-item" data-action="library"><span>▤</span>收藏</button><button class="mobile-nav-item" data-action="auth"><span>◉</span>我的</button></nav>
+    <div class="reader-dock" id="reader-dock" hidden><div class="dock-reading"><span class="dock-wave"><i></i><i></i><i></i></span><span>正在閱讀</span></div><div class="dock-tabs" id="dock-tabs"></div><button class="dock-open" id="dock-open" type="button">回到閱讀 ↗</button><button class="dock-close" id="dock-close" type="button" aria-label="關閉閱讀列">×</button></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="modal-backdrop" id="modal-backdrop" hidden><section class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"></section></div>
+    <script src="app.js"></script>
+  </body>
+</html>
+
